@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVP</title>
+
+    <script type="module" src="../model.js"></script>
+    <script type="module" src="../view-model.js"></script>
+    <script type="module">
+      import { View } from "./view.js";
+      import { ViewModel } from "../view-model.js";
+
+      const callViewModel = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const name = document.getElementById("name").value;
+        const birthDate = document.getElementById("birthDate").value;
+
+        const result = new ViewModel().createModel(name, birthDate);
+        new View().processResult(result);
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelector("form")
+          .addEventListener("submit", callViewModel);
+      });
+    </script>
+  </head>
+
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>form 1</legend>
+
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" />
+        </div>
+
+        <div>
+          <label for="birthDate">Birth Date:</label>
+          <input type="date" id="birthDate" />
+        </div>
+
+        <input type="reset" value="reset" />
+        <input type="submit" value="submit" />
+      </fieldset>
+    </form>
+  </body>
+</html>

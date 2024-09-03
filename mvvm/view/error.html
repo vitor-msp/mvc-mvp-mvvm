@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+  </head>
+
+  <body>
+    <h1 style="color: red">Error</h1>
+
+    <div style="display: flex; justify-content: space-evenly; width: 100%">
+      <div>
+        <span>Name</span>
+        <strong id="name"></strong>
+      </div>
+
+      <div>
+        <span>Age</span>
+        <strong id="age"></strong>
+      </div>
+    </div>
+
+    <div>
+      <a href="/mvvm/view/index.html">home</a>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        const query = new URLSearchParams(window.location.search);
+        const name = query.get("name");
+        const age = query.get("age");
+
+        document.getElementById("name").innerText = name;
+        document.getElementById("age").innerText = `${age} anos`;
+      });
+    </script>
+  </body>
+</html>
