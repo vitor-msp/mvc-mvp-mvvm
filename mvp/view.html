@@ -3,37 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MVP</title>
+    <title>Model View Presenter (MVP)</title>
 
-    <script type="module" src="../model.js"></script>
-    <script type="module" src="../view-model.js"></script>
+    <script type="module" src="../presenter.js"></script>
     <script type="module">
       import { View } from "./view.js";
-      import { ViewModel } from "../view-model.js";
+      import { Presenter } from "./presenter.js";
 
-      const callViewModel = (event) => {
+      const callPresenter = (event) => {
         event.preventDefault();
         event.stopPropagation();
 
         const name = document.getElementById("name").value;
         const birthDate = document.getElementById("birthDate").value;
-
-        const result = new ViewModel().createModel(name, birthDate);
-        new View().processResult(result);
+        new Presenter(new View()).createModel(name, birthDate);
       };
 
       document.addEventListener("DOMContentLoaded", () => {
         document
           .querySelector("form")
-          .addEventListener("submit", callViewModel);
+          .addEventListener("submit", callPresenter);
       });
     </script>
   </head>
 
   <body>
+    <h1>Model View Presenter (MVP)</h1>
+
     <form action="">
       <fieldset>
-        <legend>form 1</legend>
+        <legend>form</legend>
 
         <div>
           <label for="name">Name:</label>
@@ -49,5 +48,7 @@
         <input type="submit" value="submit" />
       </fieldset>
     </form>
+
+    <a href="/index.html">home</a>
   </body>
 </html>

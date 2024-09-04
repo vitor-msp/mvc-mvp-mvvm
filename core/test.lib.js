@@ -10,5 +10,5 @@ export const assertTrue = (result) => {
 };
 
 export const assertFalse = (result) => {
-  return assertTrue(!result);
+  assertTrue(!result);
 };

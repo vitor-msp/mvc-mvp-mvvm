@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error</title>
+    <title>Success</title>
   </head>
 
   <body>
-    <h1 style="color: red">Error</h1>
+    <h1 style="color: green">Success</h1>
 
     <div style="display: flex; justify-content: space-evenly; width: 100%">
+      <div>
+        <span>Id</span>
+        <strong id="id"></strong>
+      </div>
+
       <div>
         <span>Name</span>
         <strong id="name"></strong>
@@ -22,15 +27,17 @@
     </div>
 
     <div>
-      <a href="/mvc/view/index.html">home</a>
+      <a href="/index.html">home</a>
     </div>
 
     <script>
       window.addEventListener("load", () => {
         const query = new URLSearchParams(window.location.search);
+        const id = query.get("id");
         const name = query.get("name");
         const age = query.get("age");
 
+        document.getElementById("id").innerText = id;
         document.getElementById("name").innerText = name;
         document.getElementById("age").innerText = `${age} anos`;
       });

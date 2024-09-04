@@ -1,5 +1,5 @@
 import { assertEqual, assertTrue, assertFalse } from "../../test.lib.js";
-import { ViewModel } from "../view-model.js";
+import { ViewModel } from "./view-model.js";
 
 const testSuccessCase = (sut) => {
   const result = sut.createModel("old fulano", "1980-01-01");

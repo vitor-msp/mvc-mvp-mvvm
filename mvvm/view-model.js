@@ -1,4 +1,4 @@
-import { Model } from "./model.js";
+import { Model } from "../core/model.js";
 
 export class ViewModel {
   createModel(name, birthDate) {
